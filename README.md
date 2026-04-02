@@ -21,12 +21,20 @@ Dart port of [BeanHeads](https://github.com/RobertBroersma/beanheads) by Robert 
 
 ## Installation
 
-Add to your `pubspec.yaml`:
+Add `beanheads` to your project:
+
+```bash
+flutter pub add beanheads
+```
+
+Or manually add it to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  beanheads: ^0.1.0
+  beanheads: any
 ```
+
+Then run `flutter pub get`.
 
 ## Usage
 
