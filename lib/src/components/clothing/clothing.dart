@@ -46,7 +46,7 @@ ClothingRenderResult getClothingRenderers({
 
     case Clothing.shirt:
       return ClothingRenderResult(
-        renderFront: (svg) => renderShirtFront(
+        renderBack: (svg) => renderShirtFront(
           svg,
           skinColor: skinColor,
           color: color,
@@ -57,7 +57,7 @@ ClothingRenderResult getClothingRenderers({
 
     case Clothing.dressShirt:
       return ClothingRenderResult(
-        renderFront: (svg) => renderDressShirtFront(
+        renderBack: (svg) => renderDressShirtFront(
           svg,
           skinColor: skinColor,
           color: color,
@@ -71,7 +71,7 @@ ClothingRenderResult getClothingRenderers({
 
     case Clothing.vneck:
       return ClothingRenderResult(
-        renderFront: (svg) => renderVNeckFront(
+        renderBack: (svg) => renderVNeckFront(
           svg,
           skinColor: skinColor,
           color: color,
@@ -82,7 +82,7 @@ ClothingRenderResult getClothingRenderers({
 
     case Clothing.tankTop:
       return ClothingRenderResult(
-        renderFront: (svg) => renderTankTopFront(
+        renderBack: (svg) => renderTankTopFront(
           svg,
           color: color,
           outline: outline,
