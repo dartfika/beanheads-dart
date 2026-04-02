@@ -8,8 +8,8 @@ Dart port of [BeanHeads](https://github.com/RobertBroersma/beanheads) by Robert 
 
 - 17 customizable dimensions (eyes, hair, clothing, accessories, etc.)
 - Random avatar generation with optional seed for deterministic results
-- Pure Dart SVG generation -- works on server, CLI, and Flutter
-- Flutter widget included for easy integration
+- SVG string generation -- the core produces plain SVG strings you can use anywhere
+- Flutter widget included for easy integration (requires Flutter SDK)
 
 ## Installation
 

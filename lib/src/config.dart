@@ -101,6 +101,50 @@ class BeanheadConfig {
   /// Generate a random avatar configuration.
   ///
   /// If [random] is not provided, a new [Random] instance is used.
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BeanheadConfig &&
+          runtimeType == other.runtimeType &&
+          skinTone == other.skinTone &&
+          eyes == other.eyes &&
+          eyebrows == other.eyebrows &&
+          mouth == other.mouth &&
+          hair == other.hair &&
+          facialHair == other.facialHair &&
+          clothing == other.clothing &&
+          accessory == other.accessory &&
+          graphic == other.graphic &&
+          hat == other.hat &&
+          body == other.body &&
+          hairColor == other.hairColor &&
+          clothingColor == other.clothingColor &&
+          circleColor == other.circleColor &&
+          lipColor == other.lipColor &&
+          hatColor == other.hatColor &&
+          faceMaskColor == other.faceMaskColor &&
+          mask == other.mask &&
+          faceMask == other.faceMask &&
+          lashes == other.lashes;
+
+  @override
+  int get hashCode => Object.hash(
+        skinTone, eyes, eyebrows, mouth, hair,
+        facialHair, clothing, accessory, graphic, hat,
+        body, hairColor, clothingColor, circleColor, lipColor,
+        hatColor, faceMaskColor, mask, faceMask, lashes,
+      );
+
+  @override
+  String toString() => 'BeanheadConfig('
+      'skinTone: $skinTone, eyes: $eyes, eyebrows: $eyebrows, '
+      'mouth: $mouth, hair: $hair, facialHair: $facialHair, '
+      'clothing: $clothing, accessory: $accessory, graphic: $graphic, '
+      'hat: $hat, body: $body, hairColor: $hairColor, '
+      'clothingColor: $clothingColor, lipColor: $lipColor, '
+      'hatColor: $hatColor, faceMaskColor: $faceMaskColor, '
+      'mask: $mask, faceMask: $faceMask, lashes: $lashes)';
+
   factory BeanheadConfig.random({Random? random}) {
     final rng = random ?? Random();
 

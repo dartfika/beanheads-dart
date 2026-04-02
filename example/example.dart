@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:beanheads/beanheads.dart';
 
 void main() {

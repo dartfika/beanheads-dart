@@ -117,6 +117,59 @@ void main() {
     });
   });
 
+  group('BeanheadConfig copyWith', () {
+    test('copyWith with no args returns equal config', () {
+      const original = BeanheadConfig();
+      final copy = original.copyWith();
+      expect(copy, equals(original));
+    });
+
+    test('copyWith with one arg changes only that field', () {
+      const original = BeanheadConfig();
+      final copy = original.copyWith(eyes: Eyes.heart);
+      expect(copy.eyes, Eyes.heart);
+      expect(copy.skinTone, original.skinTone);
+      expect(copy.mouth, original.mouth);
+      expect(copy.hair, original.hair);
+      expect(copy.clothing, original.clothing);
+    });
+
+    test('copyWith does not mutate the original', () {
+      const original = BeanheadConfig();
+      original.copyWith(eyes: Eyes.heart, hair: Hair.afro);
+      expect(original.eyes, Eyes.normal);
+      expect(original.hair, Hair.none);
+    });
+  });
+
+  group('BeanheadConfig equality and hashCode', () {
+    test('equal configs are equal', () {
+      const config1 = BeanheadConfig(eyes: Eyes.happy, hair: Hair.long);
+      const config2 = BeanheadConfig(eyes: Eyes.happy, hair: Hair.long);
+      expect(config1, equals(config2));
+    });
+
+    test('different configs are not equal', () {
+      const config1 = BeanheadConfig(eyes: Eyes.happy);
+      const config2 = BeanheadConfig(eyes: Eyes.wink);
+      expect(config1, isNot(equals(config2)));
+    });
+
+    test('hashCode is same for equal configs', () {
+      const config1 = BeanheadConfig(eyes: Eyes.happy, hair: Hair.long);
+      const config2 = BeanheadConfig(eyes: Eyes.happy, hair: Hair.long);
+      expect(config1.hashCode, equals(config2.hashCode));
+    });
+
+    test('toString contains class name and fields', () {
+      const config = BeanheadConfig();
+      final str = config.toString();
+      expect(str, startsWith('BeanheadConfig('));
+      expect(str, contains('skinTone:'));
+      expect(str, contains('eyes:'));
+    });
+  });
+
   group('BeanheadConfig properties', () {
     test('all properties are accessible', () {
       const config = BeanheadConfig(

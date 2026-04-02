@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:beanheads/beanheads.dart';
+import 'package:beanheads/src/svg_builder.dart';
 
 void main() {
   late SvgBuilder svg;

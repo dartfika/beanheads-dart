@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,8 +10,9 @@ import 'theme.dart';
 /// A Flutter widget that renders a BeanHead avatar.
 ///
 /// Generates an SVG string from the given [config] and renders it
-/// using [SvgPicture].
-class Beanhead extends StatelessWidget {
+/// using [SvgPicture]. The SVG is cached and only regenerated when
+/// [config] or [theme] changes.
+class Beanhead extends StatefulWidget {
   /// The avatar configuration describing each visual property.
   final BeanheadConfig config;
 
@@ -37,6 +40,7 @@ class Beanhead extends StatelessWidget {
   /// Creates a Beanhead widget with a random configuration.
   factory Beanhead.random({
     Key? key,
+    Random? random,
     BeanheadsTheme? theme,
     double? width,
     double? height,
@@ -44,7 +48,7 @@ class Beanhead extends StatelessWidget {
   }) {
     return Beanhead(
       key: key,
-      config: BeanheadConfig.random(),
+      config: BeanheadConfig.random(random: random),
       theme: theme,
       width: width,
       height: height,
@@ -53,13 +57,33 @@ class Beanhead extends StatelessWidget {
   }
 
   @override
+  State<Beanhead> createState() => _BeanheadState();
+}
+
+class _BeanheadState extends State<Beanhead> {
+  late String _svgString;
+
+  @override
+  void initState() {
+    super.initState();
+    _svgString = generateAvatar(widget.config, theme: widget.theme);
+  }
+
+  @override
+  void didUpdateWidget(Beanhead oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.config != oldWidget.config || widget.theme != oldWidget.theme) {
+      _svgString = generateAvatar(widget.config, theme: widget.theme);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final svgString = generateAvatar(config, theme: theme);
     return SvgPicture.string(
-      svgString,
-      width: width,
-      height: height,
-      fit: fit,
+      _svgString,
+      width: widget.width,
+      height: widget.height,
+      fit: widget.fit,
     );
   }
 }

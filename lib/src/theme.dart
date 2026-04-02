@@ -9,6 +9,17 @@ class ColorPair {
   final String shadow;
 
   const ColorPair(this.base, this.shadow);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ColorPair && base == other.base && shadow == other.shadow;
+
+  @override
+  int get hashCode => Object.hash(base, shadow);
+
+  @override
+  String toString() => 'ColorPair($base, $shadow)';
 }
 
 /// Color theme used for rendering a BeanHead avatar.
@@ -50,18 +61,24 @@ class BeanheadsTheme {
 
   /// Resolves a [HatColor] to a [ColorPair] using the clothing color map.
   ColorPair hatColor(HatColor color) {
-    final key = ClothingColor.values.firstWhere(
-      (c) => c.name == color.name,
-    );
-    return clothingColors[key]!;
+    switch (color) {
+      case HatColor.white: return clothingColors[ClothingColor.white]!;
+      case HatColor.blue: return clothingColors[ClothingColor.blue]!;
+      case HatColor.black: return clothingColors[ClothingColor.black]!;
+      case HatColor.green: return clothingColors[ClothingColor.green]!;
+      case HatColor.red: return clothingColors[ClothingColor.red]!;
+    }
   }
 
   /// Resolves a [FaceMaskColor] to a [ColorPair] using the clothing color map.
   ColorPair faceMaskColor(FaceMaskColor color) {
-    final key = ClothingColor.values.firstWhere(
-      (c) => c.name == color.name,
-    );
-    return clothingColors[key]!;
+    switch (color) {
+      case FaceMaskColor.white: return clothingColors[ClothingColor.white]!;
+      case FaceMaskColor.blue: return clothingColors[ClothingColor.blue]!;
+      case FaceMaskColor.black: return clothingColors[ClothingColor.black]!;
+      case FaceMaskColor.green: return clothingColors[ClothingColor.green]!;
+      case FaceMaskColor.red: return clothingColors[ClothingColor.red]!;
+    }
   }
 }
 
