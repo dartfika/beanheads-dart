@@ -1,5 +1,9 @@
 # BeanHeads
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dartfika/beanheads-dart/main/doc/assets/demo.gif" alt="BeanHeads Demo" width="450" />
+</p>
+
 A customizable cartoon avatar generator for Dart and Flutter. Generates SVG strings that can be used anywhere.
 
 Dart port of [BeanHeads](https://github.com/RobertBroersma/beanheads) by Robert Broersma.
@@ -10,6 +14,10 @@ Dart port of [BeanHeads](https://github.com/RobertBroersma/beanheads) by Robert 
 - Random avatar generation with optional seed for deterministic results
 - SVG string generation -- the core produces plain SVG strings you can use anywhere
 - Flutter widget included for easy integration (requires Flutter SDK)
+- Immutable configuration with `copyWith` support
+- Value equality on `BeanheadConfig` and `ColorPair`
+- SVG caching in the `Beanhead` widget for efficient rebuilds
+- Theming support via `BeanheadsTheme`
 
 ## Installation
 
@@ -17,7 +25,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  beanheads: ^0.0.1
+  beanheads: ^0.1.0
 ```
 
 ## Usage
@@ -70,6 +78,13 @@ Beanhead.random(
 )
 ```
 
+### Immutable Updates with copyWith
+
+```dart
+final base = BeanheadConfig(eyes: Eyes.normal);
+final updated = base.copyWith(eyes: Eyes.happy, hair: Hair.afro);
+```
+
 ## Customization Options
 
 | Option | Values |
@@ -93,6 +108,87 @@ Beanhead.random(
 | `lashes` | true, false |
 | `mask` | true, false (circular background mask) |
 | `faceMask` | true, false (COVID-style face mask) |
+
+## Example App
+
+An interactive demo app is included that lets you customize avatars in real-time with dropdown selectors, SVG preview thumbnails, and live preview.
+
+### Running the Example
+
+```bash
+cd example
+flutter pub get
+```
+
+#### macOS
+```bash
+flutter run -d macos
+```
+
+#### Windows
+```bash
+flutter run -d windows
+```
+
+#### Linux
+```bash
+flutter run -d linux
+```
+
+#### iOS
+```bash
+flutter run -d ios
+```
+
+#### Android
+```bash
+flutter run -d android
+```
+
+#### Web
+```bash
+flutter run -d chrome
+```
+
+## API Reference
+
+### `BeanheadConfig`
+
+Configuration class holding all avatar customization options. Supports:
+
+- `const` constructor with sensible defaults
+- `BeanheadConfig.random({Random? random})` -- generate a random configuration, optionally seeded for deterministic results
+- `copyWith(...)` -- create a modified copy (immutable updates)
+- Value equality (`==`, `hashCode`) and `toString`
+
+### `generateAvatar(BeanheadConfig config, {BeanheadsTheme? theme})`
+
+Generates a complete avatar as an SVG string. Accepts an optional theme for color customization.
+
+### `Beanhead` Widget
+
+A `StatefulWidget` that renders an avatar from a `BeanheadConfig`. The SVG is cached internally and only regenerated when `config` or `theme` changes.
+
+```dart
+Beanhead(config: myConfig, width: 200, height: 200)
+```
+
+### `Beanhead.random()`
+
+Factory constructor that creates a widget with a random configuration.
+
+```dart
+Beanhead.random(width: 200, height: 200)
+Beanhead.random(random: Random(42))  // deterministic
+```
+
+### `BeanheadsTheme` / `ColorPair`
+
+`BeanheadsTheme` holds all color mappings (skin, hair, clothing, etc.) used during SVG generation. `ColorPair` represents a base color and its shadow variant. A `defaultTheme` is provided out of the box.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/dartfika/beanheads-dart).
 
 ## Credits
 

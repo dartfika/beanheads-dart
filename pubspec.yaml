@@ -1,6 +1,6 @@
 name: beanheads
 description: A customizable cartoon avatar generator that produces SVG strings. Dart port of the BeanHeads library.
-version: 0.0.1
+version: 0.1.0
 repository: https://github.com/dartfika/beanheads-dart
 homepage: https://github.com/dartfika/beanheads-dart
 topics:

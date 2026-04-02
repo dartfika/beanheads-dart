@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+doc/
+
+# Example platform-specific directories (not needed for the package)
+example/android/
+example/ios/
+example/linux/
+example/macos/
+example/windows/
+example/web/
+example/.idea/
+example/.dart_tool/
+example/build/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
