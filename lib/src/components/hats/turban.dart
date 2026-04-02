@@ -22,8 +22,7 @@ void renderTurbanFront(
   final shadow = hatColor.shadow;
 
   svg.openGroup(
-    style: 'transform-origin: center',
-    transform: 'scale($scale)',
+    transform: 'translate(500, 495) scale($scale) translate(-500, -495)',
   );
   svg.addPath(
     'M765.63,495.43s.3-2.94.8-8.24C759.75,345.82,643,233.25,500,233.25c-147.32,0-266.75,119.43-266.75,266.75,0,7.28.31,14.49.89,21.63,12.11-39.32,161.32-77.95,298.44-133.08C631.75,452.24,765.63,495.43,765.63,495.43Z',

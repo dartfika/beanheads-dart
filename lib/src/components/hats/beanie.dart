@@ -8,8 +8,7 @@ void renderBeanieBack(
   double scale = 1,
 }) {
   svg.openGroup(
-    style: 'transform-origin: center',
-    transform: 'scale($scale)',
+    transform: 'translate(500, 495) scale($scale) translate(-500, -495)',
   );
   svg.addPath(
     'M225.35,498c183.42,77.95,371.14,79.06,555.94,0,17.53-7.5,17.43-139.87,0-133.81-180.47,62.83-371.33,63.5-555.94,0C203.39,356.6,205.53,489.53,225.35,498Z',
@@ -33,8 +32,7 @@ void renderBeanieFront(
   final shadow = hatColor.shadow;
 
   svg.openGroup(
-    style: 'transform-origin: center',
-    transform: 'scale($scale)',
+    transform: 'translate(500, 495) scale($scale) translate(-500, -495)',
   );
   svg.addCircle(cx: 491.44, cy: 157.14, r: 47.48, fill: base);
   svg.addPath(

@@ -51,6 +51,53 @@ class BeanheadConfig {
     this.lashes = false,
   });
 
+  /// Returns a copy of this config with the given fields replaced.
+  BeanheadConfig copyWith({
+    SkinTone? skinTone,
+    Eyes? eyes,
+    Eyebrows? eyebrows,
+    Mouth? mouth,
+    Hair? hair,
+    FacialHair? facialHair,
+    Clothing? clothing,
+    Accessory? accessory,
+    ClothingGraphic? graphic,
+    Hat? hat,
+    Body? body,
+    HairColor? hairColor,
+    ClothingColor? clothingColor,
+    CircleColor? circleColor,
+    LipColor? lipColor,
+    HatColor? hatColor,
+    FaceMaskColor? faceMaskColor,
+    bool? mask,
+    bool? faceMask,
+    bool? lashes,
+  }) {
+    return BeanheadConfig(
+      skinTone: skinTone ?? this.skinTone,
+      eyes: eyes ?? this.eyes,
+      eyebrows: eyebrows ?? this.eyebrows,
+      mouth: mouth ?? this.mouth,
+      hair: hair ?? this.hair,
+      facialHair: facialHair ?? this.facialHair,
+      clothing: clothing ?? this.clothing,
+      accessory: accessory ?? this.accessory,
+      graphic: graphic ?? this.graphic,
+      hat: hat ?? this.hat,
+      body: body ?? this.body,
+      hairColor: hairColor ?? this.hairColor,
+      clothingColor: clothingColor ?? this.clothingColor,
+      circleColor: circleColor ?? this.circleColor,
+      lipColor: lipColor ?? this.lipColor,
+      hatColor: hatColor ?? this.hatColor,
+      faceMaskColor: faceMaskColor ?? this.faceMaskColor,
+      mask: mask ?? this.mask,
+      faceMask: faceMask ?? this.faceMask,
+      lashes: lashes ?? this.lashes,
+    );
+  }
+
   /// Generate a random avatar configuration.
   ///
   /// If [random] is not provided, a new [Random] instance is used.
