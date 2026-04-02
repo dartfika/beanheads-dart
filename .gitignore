@@ -19,6 +19,9 @@ doc/api/
 *.js.deps
 *.js.map
 
+# Claude Code
+.claude/
+
 # Flutter-specific
 .flutter-plugins
 .flutter-plugins-dependencies

@@ -1,3 +1,10 @@
+## 0.1.1
+
+### Bug Fixes
+
+- Fixed clothing render layer assignment — Shirt, DressShirt, VNeck, and TankTop now correctly render in the back layer, making `Body.breasts` characteristics visible as intended
+- Regenerated demo GIF with corrected rendering
+
 ## 0.1.0
 
 - Interactive example app with real-time avatar customization and SVG preview thumbnails
