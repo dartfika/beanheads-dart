@@ -1,3 +1,21 @@
+## 0.2.0
+
+### Breaking Changes
+
+- Removed `CircleColor` enum. `BeanheadConfig.circleColor` is now a `String` (hex color value) instead of `CircleColor`. Replace `CircleColor.blue` with `'#85c5e5'`
+- Removed `circleColors` field from `BeanheadsTheme`. Circle color is now specified directly as a hex string
+
+### Features
+
+- Circle background color can now be set to any hex color string (e.g., `'#FF5733'`)
+- 27 Material Design color presets for random circle color generation
+- Example app redesigned with two-column control layout
+
+### Other
+
+- Improved README installation instructions
+- Updated CI `actions/checkout` from v4 to v5
+
 ## 0.1.1
 
 ### Bug Fixes
