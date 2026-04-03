@@ -20,7 +20,7 @@ class BeanheadConfig {
   final Body body;
   final HairColor hairColor;
   final ClothingColor clothingColor;
-  final CircleColor circleColor;
+  final String circleColor;
   final LipColor lipColor;
   final HatColor hatColor;
   final FaceMaskColor faceMaskColor;
@@ -42,7 +42,7 @@ class BeanheadConfig {
     this.body = Body.chest,
     this.hairColor = HairColor.brown,
     this.clothingColor = ClothingColor.white,
-    this.circleColor = CircleColor.blue,
+    this.circleColor = '#85c5e5',
     this.lipColor = LipColor.red,
     this.hatColor = HatColor.white,
     this.faceMaskColor = FaceMaskColor.white,
@@ -66,7 +66,7 @@ class BeanheadConfig {
     Body? body,
     HairColor? hairColor,
     ClothingColor? clothingColor,
-    CircleColor? circleColor,
+    String? circleColor,
     LipColor? lipColor,
     HatColor? hatColor,
     FaceMaskColor? faceMaskColor,
@@ -141,7 +141,7 @@ class BeanheadConfig {
       'mouth: $mouth, hair: $hair, facialHair: $facialHair, '
       'clothing: $clothing, accessory: $accessory, graphic: $graphic, '
       'hat: $hat, body: $body, hairColor: $hairColor, '
-      'clothingColor: $clothingColor, lipColor: $lipColor, '
+      'clothingColor: $clothingColor, circleColor: $circleColor, lipColor: $lipColor, '
       'hatColor: $hatColor, faceMaskColor: $faceMaskColor, '
       'mask: $mask, faceMask: $faceMask, lashes: $lashes)';
 
@@ -186,7 +186,35 @@ class BeanheadConfig {
       body: pick(Body.values),
       hairColor: pick(HairColor.values),
       clothingColor: pick(ClothingColor.values),
-      circleColor: pick(CircleColor.values),
+      circleColor: pick(const [
+        '#85c5e5', // Default
+        '#E0E0E0', // Grey 300
+        '#9E9E9E', // Grey 500
+        '#B39DDB', // Deep Purple 200
+        '#9575CD', // Deep Purple 300
+        '#7E57C2', // Deep Purple 400
+        '#673AB7', // Deep Purple 500
+        '#80DEEA', // Cyan 200
+        '#4FC3F7', // Light Blue 300
+        '#2196F3', // Blue 500
+        '#A5D6A7', // Green 200
+        '#66BB6A', // Green 400
+        '#AED581', // Light Green 300
+        '#7CB342', // Light Green 600
+        '#FFF59D', // Yellow 200
+        '#FFE082', // Amber 200
+        '#FFB74D', // Orange 300
+        '#F8BBD0', // Pink 100
+        '#F48FB1', // Pink 200
+        '#EC407A', // Pink 400
+        '#EF9A9A', // Red 200
+        '#E57373', // Red 300
+        '#E53935', // Red 600
+        '#CE93D8', // Purple 200
+        '#AB47BC', // Purple 400
+        '#8E24AA', // Purple 600
+        '#6A1B9A', // Purple 800
+      ]),
       lipColor: pick(LipColor.values),
       hatColor: pick(HatColor.values),
       faceMaskColor: pick(FaceMaskColor.values),

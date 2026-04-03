@@ -28,7 +28,7 @@ String generateAvatar(BeanheadConfig config, {BeanheadsTheme? theme}) {
   final skinColor = t.skinColors[config.skinTone]!;
   final hairColor = t.hairColors[config.hairColor]!;
   final clothingColor = t.clothingColors[config.clothingColor]!;
-  final circleColor = t.circleColors[config.circleColor]!;
+  final circleColor = config.circleColor;
   final hatColorPair = t.hatColor(config.hatColor);
   final faceMaskColor = t.faceMaskColor(config.faceMaskColor);
   final outline = t.outline;
@@ -103,7 +103,7 @@ String generateAvatar(BeanheadConfig config, {BeanheadsTheme? theme}) {
     outlineColor: outline,
     viewBox: '0 0 1000 990',
     renderMask: config.mask ? (s) => renderMaskDef(s, id: 'mask') : null,
-    renderBgCircle: (s) => renderBgCircle(s, color: circleColor.base),
+    renderBgCircle: (s) => renderBgCircle(s, color: circleColor),
     renderBackHat: hatResult.renderBack,
     renderBackHair: hairResult.renderBack,
     renderBackBody: bodyResult.renderBack,

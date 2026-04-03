@@ -181,16 +181,6 @@ void main() {
     });
   });
 
-  group('CircleColor', () {
-    test('has 1 value', () {
-      expect(CircleColor.values.length, 1);
-    });
-
-    test('has expected value names', () {
-      expect(CircleColor.values.map((e) => e.name).toList(), ['blue']);
-    });
-  });
-
   group('LipColor', () {
     test('has 5 values', () {
       expect(LipColor.values.length, 5);

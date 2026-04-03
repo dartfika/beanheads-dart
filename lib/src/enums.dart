@@ -50,9 +50,6 @@ enum HairColor { blonde, orange, black, white, brown, blue, pink }
 /// Clothing color options.
 enum ClothingColor { white, blue, black, green, red }
 
-/// Background circle color options.
-enum CircleColor { blue }
-
 /// Lip color options.
 enum LipColor { red, purple, pink, turquoise, green }
 

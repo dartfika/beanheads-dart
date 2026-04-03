@@ -20,7 +20,7 @@ void main() {
       expect(config.body, Body.chest);
       expect(config.hairColor, HairColor.brown);
       expect(config.clothingColor, ClothingColor.white);
-      expect(config.circleColor, CircleColor.blue);
+      expect(config.circleColor, '#85c5e5');
       expect(config.lipColor, LipColor.red);
       expect(config.hatColor, HatColor.white);
       expect(config.faceMaskColor, FaceMaskColor.white);
@@ -62,7 +62,8 @@ void main() {
       expect(Body.values, contains(config.body));
       expect(HairColor.values, contains(config.hairColor));
       expect(ClothingColor.values, contains(config.clothingColor));
-      expect(CircleColor.values, contains(config.circleColor));
+      expect(config.circleColor, isA<String>());
+      expect(config.circleColor, startsWith('#'));
       expect(LipColor.values, contains(config.lipColor));
       expect(HatColor.values, contains(config.hatColor));
       expect(FaceMaskColor.values, contains(config.faceMaskColor));
@@ -186,7 +187,7 @@ void main() {
         body: Body.breasts,
         hairColor: HairColor.pink,
         clothingColor: ClothingColor.red,
-        circleColor: CircleColor.blue,
+        circleColor: '#85c5e5',
         lipColor: LipColor.turquoise,
         hatColor: HatColor.green,
         faceMaskColor: FaceMaskColor.black,
@@ -208,7 +209,7 @@ void main() {
       expect(config.body, Body.breasts);
       expect(config.hairColor, HairColor.pink);
       expect(config.clothingColor, ClothingColor.red);
-      expect(config.circleColor, CircleColor.blue);
+      expect(config.circleColor, '#85c5e5');
       expect(config.lipColor, LipColor.turquoise);
       expect(config.hatColor, HatColor.green);
       expect(config.faceMaskColor, FaceMaskColor.black);

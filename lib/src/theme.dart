@@ -36,9 +36,6 @@ class BeanheadsTheme {
   /// Clothing color mappings.
   final Map<ClothingColor, ColorPair> clothingColors;
 
-  /// Background circle color mappings.
-  final Map<CircleColor, ColorPair> circleColors;
-
   /// Outline color used for strokes.
   final String outline;
 
@@ -53,7 +50,6 @@ class BeanheadsTheme {
     required this.hairColors,
     required this.lipColors,
     required this.clothingColors,
-    required this.circleColors,
     required this.outline,
     required this.tongue,
     required this.white,
@@ -114,9 +110,6 @@ const defaultTheme = BeanheadsTheme(
     ClothingColor.black: ColorPair('#633749', '#5E3244'),
     ClothingColor.green: ColorPair('#89D86F', '#7DC462'),
     ClothingColor.red: ColorPair('#D67070', '#C46565'),
-  },
-  circleColors: {
-    CircleColor.blue: ColorPair('#85c5e5', '#85c5e5'),
   },
   outline: '#592d3d',
   tongue: '#f28195',

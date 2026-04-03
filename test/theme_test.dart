@@ -31,12 +31,6 @@ void main() {
       }
     });
 
-    test('has all circle colors', () {
-      for (final color in CircleColor.values) {
-        expect(defaultTheme.circleColors.containsKey(color), isTrue,
-            reason: 'Missing circle color for $color');
-      }
-    });
   });
 
   group('color constants', () {
